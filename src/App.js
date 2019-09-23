@@ -1,5 +1,8 @@
 import React from 'react';
 import { fetchCharacters } from './services/fetchCharacters';
+import { FilterByName } from './components/Filter';
+import { CharacterList } from './components/CharacterList';
+import { CharacterDetail } from './components/CharacterDetail';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,13 +31,13 @@ class App extends React.Component {
   }
 
   handleChangeName = (event) => {
-      const currentName = event.currentTarget.value;
-      return (
-        this.setState({
-          filterName : currentName
+    const currentName = event.currentTarget.value;
+    return (
+      this.setState({
+        filterName: currentName
 
-        })
-      );
+      })
+    );
   }
 
   render() {
@@ -42,23 +45,15 @@ class App extends React.Component {
     return (
       <div className="app">
         <h1 className="app--title">Rick and Morty</h1>
-        <input type="text" className="filter--name" onChange={this.handleChangeName}/>
-        <ul className="characters--list">
-          {characters
-          .filter (item=>item.name.toUpperCase().includes(filterName.toUpperCase()))
-          .map(item => {
-            return (
-              <li className="character" key={item.id}>
-                <div className="character__img--container">
-                  <img className="character__img" alt={item.name} src={item.image} />
-                </div>
-                <h2 className="character__name">{item.name}</h2>
-                <p className="character__species">{item.species}</p>
-              </li>
-            )
-          })}
-        </ul>
-
+        <FilterByName
+        handleChangeName={ this.handleChangeName }
+        />
+        <CharacterList 
+        characters={ characters }
+        filterName={ filterName }
+        />
+        <CharacterDetail
+        />
       </div>
     );
   }

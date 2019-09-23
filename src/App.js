@@ -6,7 +6,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      loading: true
+      loading: true,
+      filterName: ''
     }
   }
 
@@ -26,13 +27,26 @@ class App extends React.Component {
       })
   }
 
+  handleChangeName = (event) => {
+      const currentName = event.currentTarget.value;
+      return (
+        this.setState({
+          filterName : currentName
+
+        })
+      );
+  }
+
   render() {
-    const { characters } = this.state;
+    const { characters, filterName } = this.state;
     return (
       <div className="app">
         <h1 className="app--title">Rick and Morty</h1>
+        <input type="text" className="filter--name" onChange={this.handleChangeName}/>
         <ul className="characters--list">
-          {characters.map(item => {
+          {characters
+          .filter (item=>item.name.toUpperCase().includes(filterName.toUpperCase()))
+          .map(item => {
             return (
               <li className="character" key={item.id}>
                 <div className="character__img--container">

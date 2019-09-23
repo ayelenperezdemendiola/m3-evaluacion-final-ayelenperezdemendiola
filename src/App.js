@@ -1,8 +1,8 @@
 import React from 'react';
 import { fetchCharacters } from './services/fetchCharacters';
-import { FilterByName } from './components/Filter';
-import { CharacterList } from './components/CharacterList';
 import { CharacterDetail } from './components/CharacterDetail';
+import { Home } from './components/Home';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,16 +44,25 @@ class App extends React.Component {
     const { characters, filterName } = this.state;
     return (
       <div className="app">
-        <h1 className="app--title">Rick and Morty</h1>
-        <FilterByName
-        handleChangeName={ this.handleChangeName }
-        />
-        <CharacterList 
-        characters={ characters }
-        filterName={ filterName }
-        />
-        <CharacterDetail
-        />
+        <Switch>
+          <Route exact path="/" render={() => {
+            return (
+              <Home
+                handleChangeName={this.handleChangeName}
+                characters={characters}
+                filterName={filterName}
+              />
+            );
+          }}
+          />
+          <Route path="/character/:id" render={(routerProps)=>{return (
+            <CharacterDetail
+            routerProps={routerProps}
+            characters={characters}
+            />
+          );
+          }}/>
+        </Switch>
       </div>
     );
   }

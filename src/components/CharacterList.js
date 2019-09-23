@@ -14,6 +14,7 @@ const CharacterList = (props) => {
                                 name={item.name}
                                 image={item.image}
                                 species={item.species}
+                                id={item.id}
                             />
                         </li>
                     );

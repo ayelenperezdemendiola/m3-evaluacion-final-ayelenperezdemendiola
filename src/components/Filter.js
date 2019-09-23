@@ -3,8 +3,10 @@ import React from 'react';
 const FilterByName = (props) => {
     const { handleChangeName } = props;
     return (
-        <input type="text" className="filter--name" onChange={handleChangeName} />
+        <div className="filter--container">
+            <input type="text" className="filter--name" onChange={handleChangeName} />
+        </div>
     );
 }
 
-export {FilterByName};
+export { FilterByName };

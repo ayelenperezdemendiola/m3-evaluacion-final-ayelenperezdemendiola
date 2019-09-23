@@ -41,9 +41,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { characters, filterName } = this.state;
+    const { characters, filterName, loading } = this.state;
     return (
       <div className="app">
+        {loading && <p className="loading--add">Cargando personajes</p>}
         <Switch>
           <Route exact path="/" render={() => {
             return (

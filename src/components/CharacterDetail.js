@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CharacterDetail = (props) => {
     const { routerProps, characters } = props;
+    console.log (routerProps);
     const { id } = routerProps.match.params;
     const characterId = parseInt(id);
     const myCharacter = characters.find(item => item.id === parseInt(characterId));
@@ -28,5 +30,7 @@ const CharacterDetail = (props) => {
         </React.Fragment>
     );
 }
-
-export { CharacterDetail };
+CharacterDetail.propTypes = {
+    characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
+export default CharacterDetail;

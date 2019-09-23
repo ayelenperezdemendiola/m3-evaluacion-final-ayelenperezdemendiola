@@ -1,5 +1,6 @@
 import React from 'react';
-import { CharacterCard } from './CharacterCard';
+import CharacterCard from './CharacterCard';
+import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
     const { characters, filterName } = props;
@@ -23,4 +24,9 @@ const CharacterList = (props) => {
     );
 }
 
-export { CharacterList };
+CharacterList.propTypes = {
+    characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+    filterName: PropTypes.string.isRequired
+}
+
+export default CharacterList;

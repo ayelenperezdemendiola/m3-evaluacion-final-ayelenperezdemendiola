@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CharacterCard = (props) => {
     const { name, image, species, id } = props;
@@ -16,5 +17,10 @@ const CharacterCard = (props) => {
         </Link>
     );
 }
-
-export { CharacterCard };
+CharacterCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+}
+export default CharacterCard;

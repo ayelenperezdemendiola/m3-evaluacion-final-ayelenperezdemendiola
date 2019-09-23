@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FilterByName = (props) => {
     const { handleChangeName } = props;
@@ -8,5 +9,7 @@ const FilterByName = (props) => {
         </div>
     );
 }
-
-export { FilterByName };
+FilterByName.propTypes = {
+    handleChangeName: PropTypes.func.isRequired
+}
+export default FilterByName;

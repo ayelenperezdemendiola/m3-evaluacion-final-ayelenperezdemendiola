@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const CharacterDetail = (props) => {
     const { routerProps, characters } = props;
-    console.log(routerProps);
     const { id } = routerProps.match.params;
     const characterId = parseInt(id);
     const myCharacter = characters.find(item => item.id === parseInt(characterId));
@@ -22,10 +21,10 @@ const CharacterDetail = (props) => {
                         <div className="character--description">
                         <h2 className="detail--name">{myCharacter.name}</h2>
                         <ul className="detail--info">
-                            <li className="info species">{`Especie: ${myCharacter.species}`}</li>
+                            <li className="info species"> Especie: {myCharacter.species === 'Human' ? <i className="fas fa-user-circle" /> : <i class="fab fa-reddit-alien" />}</li>
                             <li className="info planet">{`Planeta: ${myCharacter.origin.name}`}</li>
                             <li className="info episodes">{`Cantidad de episodios: ${myCharacter.episode.length}`}</li>
-                            <li className="info life">{`Estado: ${myCharacter.status}`}</li>
+                            <li className="info life"> Estado: {myCharacter.status === 'Alive' ? <i class="fas fa-heart" /> : <i class="fas fa-dizzy" />}</li>
                         </ul>
                         </div>
                     </div>

@@ -1,0 +1,83 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.app--header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    padding: 40px;
+    .app--title{
+        height: 1px;
+        overflow: hidden;
+    }
+    .logo{
+        width: 400px;
+    }
+}
+.app--main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+.filter--name{
+    height: 36px;
+    margin: 15px;
+    width: 260px;
+    border: 2px solid turquoise;
+}
+.characters--list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 20px;
+}
+.character__card{
+    .character--description{
+        background-color: turquoise;
+        color: white;
+        padding: 10px;
+        .character__name{
+            margin-bottom: 5px;
+        }
+    }
+}
+.link--card{
+    text-decoration: none;
+}
+//detail
+.detail--general--container{
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    .detail--container{
+        display: flex;
+        background-color: turquoise;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .link--back{
+        text-decoration: none;
+        color: white;
+        margin: 5px;
+    }
+    .character--description{     
+        padding: 10px;
+        .detail--name{
+            margin-bottom: 10px;
+        }
+        .detail--info{
+            list-style: none;
+        }
+    }
+}

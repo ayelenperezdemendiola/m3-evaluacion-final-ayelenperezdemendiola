@@ -1,20 +1,22 @@
 import React from 'react';
-import FilterByName from './FilterByName';
+import Filters from './Filters';
 import CharacterList from './CharacterList';
 import PropTypes from 'prop-types';
-
+import Header from './Header';
 const Home = (props) => {
     const { handleChangeName, characters, filterName } = props;
     return (
         <React.Fragment>
-            <h1 className="app--title">Rick and Morty</h1>
-            <FilterByName
-                handleChangeName={handleChangeName}
-            />
-            <CharacterList
-                characters={characters}
-                filterName={filterName}
-            />
+                <Header />
+            <main className="app--main">
+                <Filters
+                    handleChangeName={handleChangeName}
+                />
+                <CharacterList
+                    characters={characters}
+                    filterName={filterName}
+                />
+            </main>
         </React.Fragment>
     )
 }
